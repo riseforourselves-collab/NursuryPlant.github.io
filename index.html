@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RRJG30R7SS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RRJG30R7SS');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verdant Vault | Premium Plant Store</title>
+  <meta
+    name="description"
+    content="Verdant Vault is a premium plant shopping experience with modern UI, secure demo authentication, wishlist, cart, checkout, and order tracking."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+  >
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__leaf"></div>
+    <p>Preparing your greenhouse...</p>
+  </div>
+
+  <div class="ambient ambient--one"></div>
+  <div class="ambient ambient--two"></div>
+  <div class="ambient ambient--three"></div>
+  <div class="leaf leaf--one"></div>
+  <div class="leaf leaf--two"></div>
+  <div class="leaf leaf--three"></div>
+
+  <div class="toast-stack" id="toastStack" aria-live="polite" aria-atomic="true"></div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-shell">
+      <a href="#home" class="brand" data-route-link="home">
+        <span class="brand__icon"><i class="ri-plant-line"></i></span>
+        <span>
+          <strong>Verdant Vault</strong>
+          <small>Plant Boutique Store</small>
+        </span>
+      </a>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="#home" data-route-link="home">Home</a>
+        <a href="#shop" data-route-link="shop">Shop</a>
+        <a href="#home" data-scroll-target="categories">Categories</a>
+        <a href="#wishlist" data-route-link="wishlist">Wishlist</a>
+        <a href="#cart" data-route-link="cart">Cart</a>
+        <a href="#orders" data-route-link="orders">Orders</a>
+        <a href="#profile" data-route-link="profile">Profile</a>
+        <a href="#about" data-route-link="about">About</a>
+        <a href="#contact" data-route-link="contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle theme">
+          <i class="ri-sun-line"></i>
+        </button>
+        <button class="icon-btn cart-pill" id="wishlistNavBtn" type="button" data-route-btn="wishlist" aria-label="Wishlist">
+          <i class="ri-heart-3-line"></i>
+          <span class="badge" id="wishlistCount">0</span>
+        </button>
+        <button class="icon-btn cart-pill" id="cartNavBtn" type="button" data-route-btn="cart" aria-label="Cart">
+          <i class="ri-shopping-bag-3-line"></i>
+          <span class="badge" id="cartCount">0</span>
+        </button>
+        <button class="auth-chip" id="authActionBtn" type="button">Login</button>
+        <button class="menu-btn" id="menuToggle" type="button" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="route-view is-active" id="route-home" data-route="home">
+      <section class="hero">
+        <div class="container hero__grid">
+          <div class="hero__content reveal">
+            <p class="eyebrow">A premium plant-first shopping experience</p>
+            <h1>
+              Bring home
+              <span id="heroText">calm indoor greens</span>
+              with boutique delivery.
+            </h1>
+            <p class="hero__copy">
+              Shop curated indoor plants, bonsai, air purifiers, and gardening essentials with a modern retail flow inspired by the world’s best marketplaces.
+            </p>
+            <div class="hero__actions">
+              <button class="btn btn--primary" type="button" data-route-btn="shop">Shop Collection</button>
+              <button class="btn btn--ghost" type="button" data-scroll-to="home-offer">Explore Offers</button>
+            </div>
+            <div class="hero__stats">
+              <article>
+                <strong>25K+</strong>
+                <span>Plant lovers served</span>
+              </article>
+              <article>
+                <strong>30</strong>
+                <span>Curated live plants</span>
+              </article>
+              <article>
+                <strong>4.8/5</strong>
+                <span>Average rating</span>
+              </article>
+            </div>
+          </div>
+
+          <div class="hero__visual reveal">
+          
+            <div class="hero-image-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1200&q=80"
+                alt="Premium monstera plant in a modern interior"
+                class="hero-image"
+              >
+              <div class="floating-chip floating-chip--bottom">Fast Delivery</div>
+              <div class="floating-chip floating-chip--bottom-right">15% Spring Savings</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="offer-strip reveal" id="home-offer">
+        <div class="container offer-strip__inner glass">
+          <div>
+            <p class="eyebrow">Limited time offer</p>
+            <h2>Use code <span>GREEN10</span> for 10% off your first order</h2>
+          </div>
+          <button class="btn btn--secondary" type="button" data-route-btn="shop">Claim Offer</button>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <p class="eyebrow">Featured edit</p>
+              <h2>Fresh arrivals picked for stylish homes</h2>
+            </div>
+            <button class="text-link" type="button" data-route-btn="shop">View all products</button>
+          </div>
+          <div class="product-grid" id="featuredGrid"></div>
+        </div>
+      </section>
+
+      <section class="section section--tinted" id="categories">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <p class="eyebrow">Categories</p>
+              <h2>Find the right greenery for every corner</h2>
+            </div>
+          </div>
+          <div class="category-grid" id="categoryGrid"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container showcase-grid">
+          <article class="showcase-panel reveal">
+            <div class="section-head section-head--compact">
+              <div>
+                <p class="eyebrow">Trending now</p>
+                <h2>Most loved this season</h2>
+              </div>
+            </div>
+            <div class="compact-grid" id="trendingGrid"></div>
+          </article>
+          <article class="showcase-panel reveal">
+            <div class="section-head section-head--compact">
+              <div>
+                <p class="eyebrow">Best sellers</p>
+                <h2>Top performers in carts</h2>
+              </div>
+            </div>
+            <div class="compact-grid" id="bestSellerGrid"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--tinted">
+        <div class="container editorial-grid">
+          <article class="editorial-card reveal">
+            <div class="section-head section-head--compact">
+              <div>
+                <p class="eyebrow">Plant care journal</p>
+                <h2>Simple habits for healthier leaves</h2>
+              </div>
+            </div>
+            <div class="blog-grid" id="blogGrid"></div>
+          </article>
+
+          <article class="editorial-card reveal">
+            <div class="section-head section-head--compact">
+              <div>
+                <p class="eyebrow">Recent views</p>
+                <h2>Continue where you left off</h2>
+              </div>
+            </div>
+            <div class="compact-grid" id="recentlyViewedGrid"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <p class="eyebrow">Testimonials</p>
+              <h2>Trusted by apartment gardeners and plant stylists</h2>
+            </div>
+          </div>
+          <div class="testimonial-grid" id="testimonialGrid"></div>
+        </div>
+      </section>
+
+      <section class="section section--tinted">
+        <div class="container faq-layout">
+          <article class="newsletter-card reveal">
+            <p class="eyebrow">Stay in the loop</p>
+            <h2>Get restock alerts, care tips, and member-only offers</h2>
+            <form id="newsletterForm" class="newsletter-form">
+              <input type="email" id="newsletterEmail" placeholder="Enter your email address" required>
+              <button class="btn btn--primary" type="submit">Subscribe</button>
+            </form>
+            <p class="note">No spam, just fresh leaves and smarter plant care.</p>
+          </article>
+
+          <article class="faq-card reveal">
+            <div class="section-head section-head--compact">
+              <div>
+                <p class="eyebrow">FAQ</p>
+                <h2>Helpful answers before checkout</h2>
+              </div>
+            </div>
+            <div class="faq-list" id="faqList"></div>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <section class="route-view" id="route-shop" data-route="shop">
+      <section class="route-hero route-hero--shop">
+        <div class="container route-hero__inner reveal">
+          <div>
+            <p class="eyebrow">Shop plants</p>
+            <h1>Curated greens for homes, studios, and gardens</h1>
+            <p>Search, filter, compare, and discover realistic product information before you add to cart.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container shop-layout">
+          <aside class="filter-panel glass reveal">
+            <div class="filter-block">
+              <label for="searchInput">Search plants</label>
+              <div class="search-shell">
+                <i class="ri-search-line"></i>
+                <input type="search" id="searchInput" placeholder="Search by plant name or keyword">
+              </div>
+            </div>
+
+            <div class="filter-block">
+              <label for="categoryFilter">Category</label>
+              <select id="categoryFilter">
+                <option value="all">All categories</option>
+              </select>
+            </div>
+
+            <div class="filter-block">
+              <label for="priceFilter">Price range</label>
+              <select id="priceFilter">
+                <option value="all">All prices</option>
+                <option value="0-499">Under Rs. 499</option>
+                <option value="500-999">Rs. 500 - Rs. 999</option>
+                <option value="1000-1499">Rs. 1000 - Rs. 1499</option>
+                <option value="1500-99999">Rs. 1500+</option>
+              </select>
+            </div>
+
+            <div class="filter-block">
+              <label for="sizeFilter">Plant size</label>
+              <select id="sizeFilter">
+                <option value="all">All sizes</option>
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+              </select>
+            </div>
+
+            <div class="filter-block">
+              <label for="sunlightFilter">Sunlight</label>
+              <select id="sunlightFilter">
+                <option value="all">All sunlight needs</option>
+                <option value="Low light">Low light</option>
+                <option value="Bright indirect">Bright indirect</option>
+                <option value="Direct sun">Direct sun</option>
+                <option value="Partial sun">Partial sun</option>
+              </select>
+            </div>
+
+            <div class="filter-block">
+              <label for="environmentFilter">Indoor / Outdoor</label>
+              <select id="environmentFilter">
+                <option value="all">All environments</option>
+                <option value="Indoor">Indoor</option>
+                <option value="Outdoor">Outdoor</option>
+                <option value="Both">Both</option>
+              </select>
+            </div>
+
+            <div class="filter-block">
+              <label for="availabilityFilter">Availability</label>
+              <select id="availabilityFilter">
+                <option value="all">All stock states</option>
+                <option value="in-stock">In stock</option>
+                <option value="low-stock">Low stock</option>
+              </select>
+            </div>
+
+            <button class="btn btn--ghost filter-reset" id="clearFiltersBtn" type="button">Reset Filters</button>
+          </aside>
+
+          <div class="shop-content">
+            <div class="shop-toolbar reveal">
+              <p id="shopResultsText">Showing products</p>
+              <div class="toolbar-actions">
+                <select id="sortFilter" aria-label="Sort products">
+                  <option value="featured">Featured</option>
+                  <option value="price-asc">Price: Low to High</option>
+                  <option value="price-desc">Price: High to Low</option>
+                  <option value="newest">New Arrivals</option>
+                  <option value="best-selling">Best Selling</option>
+                  <option value="rating">Highest Rated</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="product-grid product-grid--shop" id="shopGrid"></div>
+            <div class="empty-state hidden" id="shopEmptyState">
+              <div class="empty-illustration"></div>
+              <h3>No plants match your filters</h3>
+              <p>Try a different category, reset your filters, or explore new arrivals.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="route-view" id="route-wishlist" data-route="wishlist">
+      <section class="route-hero route-hero--soft">
+        <div class="container route-hero__inner reveal">
+          <div>
+            <p class="eyebrow">Wishlist</p>
+            <h1>Your saved plant inspirations</h1>
+            <p>Keep favorites handy and move them into your cart when the moment feels right.</p>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <div class="product-grid" id="wishlistGrid"></div>
+          <div class="empty-state hidden" id="wishlistEmptyState">
+            <div class="empty-illustration empty-illustration--heart"></div>
+            <h3>Your wishlist is waiting to bloom</h3>
+            <p>Save premium plants here to compare later or move them straight into cart.</p>
+            <button class="btn btn--primary" type="button" data-route-btn="shop">Explore Shop</button>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="route-view" id="route-cart" data-route="cart">
+      <section class="route-hero route-hero--soft">
+        <div class="container route-hero__inner reveal">
+          <div>
+            <p class="eyebrow">Cart</p>
+            <h1>Review your plant collection</h1>
+            <p>Adjust quantities, apply your welcome code, and get ready for a beautiful delivery.</p>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container cart-layout">
+          <div class="cart-items" id="cartItems"></div>
+
+          <aside class="summary-card glass reveal">
+            <div class="summary-head">
+              <h3>Order Summary</h3>
+              <span id="cartSummaryCount">0 items</span>
+            </div>
+            <div class="coupon-shell">
+              <input type="text" id="couponInput" placeholder="Coupon code">
+              <button class="btn btn--ghost" id="applyCouponBtn" type="button">Apply</button>
+            </div>
+            <div class="summary-list" id="cartSummary"></div>
+            <div class="summary-actions">
+              <button class="btn btn--ghost" type="button" data-route-btn="shop">Continue Shopping</button>
+              <button class="btn btn--primary" id="checkoutBtn" type="button">Proceed to Checkout</button>
+            </div>
+          </aside>
+        </div>
+
+        <div class="empty-state hidden" id="cartEmptyState">
+          <div class="empty-illustration empty-illustration--cart"></div>
+          <h3>Your cart is currently empty</h3>
+          <p>Add some indoor elegance or balcony greens to get started.</p>
+          <button class="btn btn--primary" type="button" data-route-btn="shop">Browse Plants</button>
+        </div>
+      </section>
+
+      <section class="section section--tinted">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <p class="eyebrow">Frequently bought together</p>
+              <h2>Pairs that go beautifully together</h2>
+            </div>
+          </div>
+          <div class="compact-grid" id="bundleGrid"></div>
+        </div>
+      </section>
+    </section>
+
+    <section class="route-view" id="route-checkout" data-route="checkout">
+      <section class="route-hero route-hero--soft">
+        <div class="container route-hero__inner reveal">
+          <div>
+            <p class="eyebrow">Checkout</p>
+            <h1>Secure your delivery details</h1>
+            <p>Choose your address and payment preference, then place your order in one polished flow.</p>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container checkout-layout">
+          <form class="form-card glass reveal" id="checkoutForm">
+            <div class="section-head section-head--compact">
+              <div>
+                <p class="eyebrow">Shipping details</p>
+                <h2>Where should we deliver?</h2>
+              </div>
+            </div>
+            <div class="form-grid">
+              <label>
+                Full Name
+                <input type="text" id="checkoutName" required>
+              </label>
+              <label>
+                Phone
+                <input type="tel" id="checkoutPhone" required>
+              </label>
+              <label class="form-span-2">
+                Street Address
+                <input type="text" id="checkoutStreet" required>
+              </label>
+              <label>
+                City
+                <input type="text" id="checkoutCity" required>
+              </label>
+              <label>
+                State
+                <input type="text" id="checkoutState" required>
+              </label>
+              <label>
+                Pincode
+                <input type="text" id="checkoutZip" required>
+              </label>
+              <label class="form-span-2">
+                Delivery Notes
+                <textarea id="checkoutNotes" rows="3" placeholder="Gate number, landmark, or preferred timing"></textarea>
+              </label>
+            </div>
+
+            <div class="section-head section-head--compact section-head--payment">
+              <div>
+                <p class="eyebrow">Payment</p>
+                <h2>Select a payment method</h2>
+              </div>
+            </div>
+            <div class="payment-options" id="paymentOptions">
+              <label class="payment-card is-active">
+                <input type="radio" name="paymentMethod" value="Cash on Delivery" checked>
+                <i class="ri-hand-coin-line"></i>
+                <span>Cash on Delivery</span>
+              </label>
+              <label class="payment-card">
+                <input type="radio" name="paymentMethod" value="Card Payment">
+                <i class="ri-bank-card-line"></i>
+                <span>Card Payment</span>
+              </label>
+              <label class="payment-card">
+                <input type="radio" name="paymentMethod" value="UPI">
+                <i class="ri-smartphone-line"></i>
+                <span>UPI</span>
+              </label>
+            </div>
+
+            <div class="payment-details hidden" id="cardFields">
+              <div class="form-grid">
+                <label class="form-span-2">
+                  Card Number
+                  <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456">
+                </label>
+                <label>
+                  Expiry
+                  <input type="text" id="cardExpiry" placeholder="MM/YY">
+                </label>
+                <label>
+                  CVV
+                  <input type="password" id="cardCvv" placeholder="123">
+                </label>
+              </div>
+            </div>
+
+            <div class="payment-details hidden" id="upiFields">
+              <label>
+                UPI ID
+                <input type="text" id="upiId" placeholder="name@bank">
+              </label>
+            </div>
+
+            <button class="btn btn--primary btn--full" type="submit">Place Order</button>
+          </form>
+
+          <aside class="summary-card glass reveal">
+            <div class="summary-head">
+              <h3>Order Preview</h3>
+            </div>
+            <div id="checkoutSummary"></div>
+          </aside>
+        </div>
+      </section>
+    </section>
+
+    <section class="route-view" id="route-orders" data-route="orders">
+      <section class="route-hero route-hero--soft">
+        <div class="container route-hero__inner reveal">
+          <div>
+            <p class="eyebrow">Order history</p>
+            <h1>Track every delivery from placement to doorstep</h1>
+            <p>Stay updated with a visual timeline, reorder favorites, and cancel eligible orders before dispatch.</p>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container orders-stack" id="ordersList"></div>
+        <div class="empty-state hidden" id="ordersEmptyState">
+          <div class="empty-illustration empty-illustration--orders"></div>
+          <h3>No orders yet</h3>
+          <p>Your first plant delivery will appear here with live demo tracking steps.</p>
+          <button class="btn btn--primary" type="button" data-route-btn="shop">Start Shopping</button>
+        </div>
+      </section>
+    </section>
+
+    <section class="route-view" id="route-profile" data-route="profile">
+      <section class="route-hero route-hero--soft">
+        <div class="container route-hero__inner reveal">
+          <div>
+            <p class="eyebrow">Profile</p>
+            <h1>Manage your account and saved details</h1>
+            <p>Review personal info, saved address, wishlist counts, and order highlights in one place.</p>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container profile-layout">
+          <article class="profile-card glass reveal">
+            <div class="profile-card__head">
+              <div class="avatar-badge" id="profileAvatar">VV</div>
+              <div>
+                <h2 id="profileName">Guest Shopper</h2>
+                <p id="profileEmail">Sign in to view your profile</p>
+              </div>
+            </div>
+            <div class="profile-stats" id="profileStats"></div>
+            <button class="btn btn--primary btn--full" type="button" id="editProfileBtn">Edit Profile</button>
+            <button class="btn btn--ghost btn--full" type="button" id="logoutBtn">Logout</button>
+          </article>
+
+          <article class="form-card glass reveal">
+            <div class="section-head section-head--compact">
+              <div>
+                <p class="eyebrow">Saved address</p>
+                <h2>Default delivery location</h2>
+              </div>
+            </div>
+            <div id="savedAddressCard" class="saved-address-card"></div>
+          </article>
+
+          <article class="form-card glass reveal">
+            <div class="section-head section-head--compact">
+              <div>
+                <p class="eyebrow">Quick links</p>
+                <h2>Your shopping shortcuts</h2>
+              </div>
+            </div>
+            <div class="quick-link-list">
+              <button class="quick-link" type="button" data-route-btn="orders">
+                <i class="ri-truck-line"></i>
+                <span>My Orders</span>
+              </button>
+              <button class="quick-link" type="button" data-route-btn="wishlist">
+                <i class="ri-heart-3-line"></i>
+                <span>Saved Wishlist</span>
+              </button>
+              <button class="quick-link" type="button" data-route-btn="cart">
+                <i class="ri-shopping-bag-3-line"></i>
+                <span>Shopping Cart</span>
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <section class="route-view" id="route-about" data-route="about">
+      <section class="route-hero">
+        <div class="container route-hero__inner reveal">
+          <div>
+            <p class="eyebrow">About us</p>
+            <h1>Designed for modern plant shopping</h1>
+            <p>Verdant Vault combines editorial storytelling, reliable product details, and a retail-grade experience tailored entirely to plants.</p>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container content-layout">
+          <article class="content-card glass reveal">
+            <h2>Why Verdant Vault exists</h2>
+            <p>
+              We built this demo store to feel like a polished real-world marketplace, but with the warmth and calm of a boutique plant brand. Every section is focused on helping shoppers choose the right plant confidently.
+            </p>
+            <p>
+              From air-purifying indoor greens to statement floor plants and bonsai gifts, the experience is organized to be visual, reassuring, and easy to navigate on any device.
+            </p>
+          </article>
+          <article class="content-card glass reveal">
+            <h2>What makes the experience premium</h2>
+            <ul class="feature-list">
+              <li>Rich product data including care, watering, sunlight, and benefits</li>
+              <li>Persistent cart, wishlist, orders, and profile data using localStorage</li>
+              <li>Responsive layouts, animations, glass surfaces, and thoughtful micro-interactions</li>
+              <li>Order tracking, reorder support, and realistic checkout states</li>
+            </ul>
+          </article>
+          <article class="content-card content-card--image glass reveal">
+            <img
+              src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1200&q=80"
+              alt="Curated indoor plants styled in a premium room"
+            >
+            <div class="content-card__overlay">
+              <p class="eyebrow">Curated Visual Style</p>
+              <h2>Boutique calm with marketplace clarity</h2>
+              <p>Every page is designed to feel editorial, shoppable, and premium at the same time.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <section class="route-view" id="route-contact" data-route="contact">
+      <section class="route-hero">
+        <div class="container route-hero__inner reveal">
+          <div>
+            <p class="eyebrow">Contact us</p>
+            <h1>We’re here to help your plants thrive</h1>
+            <p>Reach out for order support, plant guidance, gifting help, or general questions.</p>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container contact-layout">
+          <article class="content-card glass reveal">
+            <h2>Support details</h2>
+            <div class="contact-list">
+              <p><i class="ri-mail-line"></i> hello@verdantvault.demo</p>
+              <p><i class="ri-phone-line"></i> +91 98765 43210</p>
+              <p><i class="ri-map-pin-line"></i> 14 Greenhouse Avenue, Bengaluru, India</p>
+            </div>
+          </article>
+          <article class="content-card content-card--image glass reveal">
+            <img
+              src="https://images.unsplash.com/photo-1512428813834-c702c7702b78?auto=format&fit=crop&w=1200&q=80"
+              alt="Plant care team working inside a greenhouse"
+            >
+            <div class="content-card__overlay">
+              <p class="eyebrow">Plant Support</p>
+              <h2>Realistic service experience, beautifully presented</h2>
+              <p>From delivery questions to plant care suggestions, the contact area now has a more polished brand feel.</p>
+            </div>
+          </article>
+          <form class="form-card glass reveal" id="contactForm">
+            <div class="form-grid">
+              <label>
+                Your Name
+                <input type="text" id="contactName" required>
+              </label>
+              <label>
+                Email
+                <input type="email" id="contactEmail" required>
+              </label>
+              <label class="form-span-2">
+                Message
+                <textarea id="contactMessage" rows="5" required placeholder="Tell us how we can help"></textarea>
+              </label>
+            </div>
+            <button class="btn btn--primary" type="submit">Send Message</button>
+          </form>
+        </div>
+      </section>
+    </section>
+
+    <section class="route-view" id="route-auth" data-route="auth">
+      <section class="auth-section">
+        <div class="container auth-layout">
+          <article class="auth-showcase reveal">
+            <p class="eyebrow">Member access</p>
+            <h1>Sign in to manage orders, wishlist, and checkout</h1>
+            <p>
+              Create an account to save your profile, addresses, order history, and favorite plant picks. A demo account is also preloaded for quick exploration.
+            </p>
+            <div class="auth-showcase__media">
+              <img
+                src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=1200&q=80"
+                alt="Modern plant shelf in a bright premium interior"
+              >
+            </div>
+            <div class="demo-credentials glass">
+              <h3>Demo login</h3>
+              <p>Email: demo@verdantvault.com</p>
+              <p>Password: Demo@123</p>
+            </div>
+          </article>
+
+          <article class="auth-card glass reveal">
+            <div class="auth-tabs">
+              <button class="auth-tab is-active" type="button" data-auth-tab="login">Login</button>
+              <button class="auth-tab" type="button" data-auth-tab="register">Register</button>
+            </div>
+
+            <form id="loginForm" class="auth-form">
+              <label>
+                Email
+                <input type="email" id="loginEmail" required>
+              </label>
+              <label>
+                Password
+                <input type="password" id="loginPassword" required>
+              </label>
+              <button class="btn btn--primary btn--full" type="submit">Login</button>
+            </form>
+
+            <form id="registerForm" class="auth-form hidden">
+              <div class="form-grid">
+                <label class="form-span-2">
+                  Full Name
+                  <input type="text" id="registerName" required>
+                </label>
+                <label>
+                  Email
+                  <input type="email" id="registerEmail" required>
+                </label>
+                <label>
+                  Phone
+                  <input type="tel" id="registerPhone" required>
+                </label>
+                <label>
+                  Password
+                  <input type="password" id="registerPassword" required>
+                </label>
+                <label>
+                  Confirm Password
+                  <input type="password" id="registerConfirmPassword" required>
+                </label>
+              </div>
+              <button class="btn btn--primary btn--full" type="submit">Create Account</button>
+            </form>
+          </article>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="#home" class="brand brand--footer" data-route-link="home">
+          <span class="brand__icon"><i class="ri-plant-line"></i></span>
+          <span>
+            <strong>Verdant Vault</strong>
+            <small>Curated green living</small>
+          </span>
+        </a>
+        <p class="footer-copy">
+          A polished plant commerce demo built with HTML, CSS, JavaScript, and persistent localStorage state.
+        </p>
+      </div>
+
+      <div>
+        <h4>Explore</h4>
+        <a href="#shop" data-route-link="shop">Shop Plants</a>
+        <a href="#wishlist" data-route-link="wishlist">Wishlist</a>
+        <a href="#orders" data-route-link="orders">Order Tracking</a>
+      </div>
+
+      <div>
+        <h4>Company</h4>
+        <a href="#about" data-route-link="about">About</a>
+        <a href="#contact" data-route-link="contact">Contact</a>
+        <a href="#home" data-scroll-target="faqList">FAQ</a>
+      </div>
+
+      <div>
+        <h4>Follow us</h4>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+          <a href="#" aria-label="Facebook"><i class="ri-facebook-circle-line"></i></a>
+          <a href="#" aria-label="Pinterest"><i class="ri-pinterest-line"></i></a>
+          <a href="#" aria-label="Youtube"><i class="ri-youtube-line"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal hidden" id="productModal">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__card glass">
+      <button class="modal__close" type="button" data-close-modal aria-label="Close product details">
+        <i class="ri-close-line"></i>
+      </button>
+      <div class="product-modal" id="productModalContent"></div>
+    </div>
+  </div>
+
+  <div class="modal hidden" id="profileModal">
+    <div class="modal__backdrop" data-close-profile-modal></div>
+    <div class="modal__card modal__card--small glass">
+      <button class="modal__close" type="button" data-close-profile-modal aria-label="Close profile editor">
+        <i class="ri-close-line"></i>
+      </button>
+      <div class="section-head section-head--compact">
+        <div>
+          <p class="eyebrow">Edit profile</p>
+          <h2>Update your information</h2>
+        </div>
+      </div>
+      <form id="profileForm" class="auth-form">
+        <label>
+          Full Name
+          <input type="text" id="profileFormName" required>
+        </label>
+        <label>
+          Email
+          <input type="email" id="profileFormEmail" disabled>
+        </label>
+        <label>
+          Phone
+          <input type="tel" id="profileFormPhone" required>
+        </label>
+        <label>
+          New Password
+          <input type="password" id="profileFormPassword" placeholder="Leave blank to keep current password">
+        </label>
+        <button class="btn btn--primary btn--full" type="submit">Save Changes</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+       
